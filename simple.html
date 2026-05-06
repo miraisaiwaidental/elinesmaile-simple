@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELINESMILE スタッフ簡易マニュアル</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a3a5c;
+  --teal: #2d8fad;
+  --gold: #c9a94e;
+  --green: #27ae60;
+  --red: #e74c3c;
+  --purple: #8e44ad;
+  --orange: #e67e22;
+  --white: #fff;
+  --g50: #f7f9fc;
+  --g100: #eef1f5;
+  --g300: #c8d0da;
+  --dark: #1e2a38;
+  --font: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--g50);
+  color: var(--dark);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── HEADER ─────────────────────────────────────── */
+.header {
+  background: var(--navy);
+  padding: 32px 24px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold));
+}
+.header-eyebrow {
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.header h1 {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.header-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+}
+
+/* ── PHILOSOPHY ─────────────────────────────────── */
+.philosophy {
+  background: var(--teal);
+  padding: 20px 24px;
+  text-align: center;
+}
+.philosophy p {
+  font-size: 14px;
+  color: var(--white);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.philosophy strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+/* ── FLOW BAR ────────────────────────────────────── */
+.flow-bar {
+  background: var(--navy);
+  padding: 20px 16px;
+  overflow-x: auto;
+}
+.flow-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-width: max-content;
+  margin: 0 auto;
+}
+.flow-chip {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 6px;
+  padding: 7px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: background .15s;
+  text-decoration: none;
+}
+.flow-chip:hover { background: rgba(255,255,255,.2); }
+.flow-chip .fn { font-size: 11px; font-weight: 700; color: var(--gold); display: block; }
+.flow-chip .fl { font-size: 12px; color: var(--white); display: block; margin-top: 1px; white-space: nowrap; }
+.flow-chip.new-badge { border-color: var(--gold); background: rgba(201,169,78,.15); }
+.flow-arrow { color: var(--teal); font-size: 14px; padding: 0 6px; flex-shrink: 0; }
+
+/* ── MAIN ────────────────────────────────────────── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── STEP CARD ───────────────────────────────────── */
+.step-card {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+.step-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px 16px;
+  border-bottom: 1px solid var(--g100);
+  cursor: pointer;
+  user-select: none;
+}
+
+.step-num {
+  min-width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.step-head-text { flex: 1; }
+.step-title { font-size: 17px; font-weight: 700; color: var(--dark); }
+.step-desc { font-size: 12px; color: #6c7a8a; margin-top: 2px; }
+
+.step-toggle {
+  font-size: 20px;
+  color: var(--g300);
+  transition: transform .2s;
+  flex-shrink: 0;
+}
+
+.step-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── ROLE BADGES ─────────────────────────────────── */
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.role {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.role.uketsuke { background: #e8f4ff; color: #1a6db5; border: 1px solid #b0d4f0; }
+.role.da       { background: #e8f8ee; color: #1a8a40; border: 1px solid #90d0a8; }
+.role.dr       { background: #eef1f8; color: var(--navy); border: 1px solid #a0b0cc; }
+.role.dh       { background: #e8f8f8; color: #0e7a7a; border: 1px solid #90cece; }
+.role.cou      { background: #f3eeff; color: var(--purple); border: 1px solid #c0a0e0; }
+.role.time     { background: var(--g100); color: #5a6a7a; border: 1px solid var(--g300); }
+
+/* ── CHECKLIST ───────────────────────────────────── */
+.checklist { display: flex; flex-direction: column; gap: 8px; }
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.check-box {
+  min-width: 20px;
+  height: 20px;
+  border: 2px solid var(--g300);
+  border-radius: 5px;
+  margin-top: 1px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: transparent;
+}
+.check-box.checked {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+.check-text { color: var(--dark); }
+.check-item.checked-item .check-text {
+  color: var(--g300);
+  text-decoration: line-through;
+}
+
+/* ── TALK BOX ────────────────────────────────────── */
+.talk {
+  background: var(--g50);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+}
+.talk-label {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.talk p { font-size: 13.5px; color: var(--dark); font-style: italic; line-height: 1.7; }
+
+/* ── WARN / TIP ──────────────────────────────────── */
+.warn, .tip, .key {
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.warn { background: #fff0ef; border-left: 3px solid var(--red); color: #8a1a1a; }
+.tip  { background: #e8f4f8; border-left: 3px solid var(--teal); color: #0e4a60; }
+.key  { background: #faf3e0; border-left: 3px solid var(--gold); color: #6a4a00; }
+.warn strong, .tip strong, .key strong { font-weight: 700; display: block; margin-bottom: 2px; }
+.icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── SECTION LABEL ───────────────────────────────── */
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6c7a8a;
+  letter-spacing: .06em;
+  margin-bottom: 4px;
+}
+
+/* ── PROGRESS ────────────────────────────────────── */
+.progress-bar-wrap {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.progress-label {
+  font-size: 12px;
+  color: #6c7a8a;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.progress-track {
+  height: 8px;
+  background: var(--g100);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--green));
+  border-radius: 4px;
+  transition: width .4s ease;
+}
+
+/* ── FOOTER ──────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+  color: #9aa5b4;
+}
+
+/* ── COMPARE BOX ─────────────────────────────────── */
+.compare-box {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--teal);
+}
+.compare-title {
+  background: var(--navy);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 18px;
+}
+.compare-lead {
+  font-size: 13px;
+  color: var(--dark);
+  padding: 12px 18px 8px;
+  background: var(--g50);
+  border-bottom: 1px solid var(--g100);
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.compare-col {
+  padding: 16px;
+}
+.compare-col.danger { background: #fff5f5; border-right: 1px solid var(--g200); }
+.compare-col.success { background: #f0faf4; }
+.compare-col-head {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.compare-col.danger .compare-col-head { color: var(--red); }
+.compare-col.success .compare-col-head { color: var(--green); }
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-bottom: 10px;
+}
+.compare-table tr { border-bottom: 1px solid rgba(0,0,0,.06); }
+.compare-table td { padding: 7px 6px; vertical-align: middle; line-height: 1.4; }
+.compare-table .price {
+  text-align: right;
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 13px;
+}
+.compare-table .sub { font-size: 11px; color: #8a96a4; }
+.compare-table .total-row td {
+  background: rgba(0,0,0,.04);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 6px;
+}
+.danger-text { color: var(--red); }
+.green-text { color: var(--green); }
+.compare-note {
+  font-size: 11.5px;
+  color: #7a3030;
+  background: rgba(231,76,60,.07);
+  border-radius: 6px;
+  padding: 8px 10px;
+  line-height: 1.6;
+}
+.compare-note.success-note {
+  color: #0e5a28;
+  background: rgba(39,174,96,.08);
+}
+.compare-bottom {
+  background: var(--navy);
+  color: rgba(255,255,255,.88);
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 14px 18px;
+}
+.compare-bottom strong {
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+/* ── IMAGES ──────────────────────────────────────── */
+.step-img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  max-height: 220px;
+}
+.img-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.img-caption {
+  font-size: 11px;
+  color: #8a96a4;
+  text-align: center;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-eyebrow">Staff Quick Reference</div>
+  <h1>ELINESMILE 治療の流れ</h1>
+  <p class="header-sub">スタッフ簡易マニュアル｜各ステップのやることと声かけ</p>
+</header>
+
+<!-- Philosophy -->
+<div class="philosophy">
+  <p>
+    <strong>この治療の考え方（全員が理解する）</strong>
+    判断材料を先に無償で提供し、患者自身が「自分で選んだ」と思える体験を作る。<br>
+    他院と比べてもらっていい。それでも選ばれる診療を提供する。
+  </p>
+</div>
+
+<!-- Flow Bar -->
+<div class="flow-bar">
+  <div class="flow-bar-inner">
+    <a class="flow-chip" href="#s1"><span class="fn">①</span><span class="fl">初診</span></a>
+    <span class="flow-arrow">→</span>
+    <a class="flow-chip" href="#s1f"><span class="fn">①'</span><span class="fl">フォロー</span></a>
+    <span class="flow-arrow">→</span>
+    <a class="flow-chip" href="#s3"><span class="fn">②③</span><span class="fl">CC説明・契約</span></a>
+    <span class="flow-arrow">→</span>
+    <a class="flow-chip" href="#s4"><span class="fn">④</span><span class="fl">セット</span></a>
+    <span class="flow-arrow">→</span>
+    <a class="flow-chip" href="#s5"><span class="fn">⑤</span><span class="fl">経過来院</span></a>
+    <span class="flow-arrow">→</span>
+    <a class="flow-chip" href="#s67"><span class="fn">⑥⑦</span><span class="fl">追加</span></a>
+    <span class="flow-arrow">→</span>
+    <a class="flow-chip new-badge" href="#s8"><span class="fn">⑧ ★</span><span class="fl">チェアサイド</span></a>
+    <span class="flow-arrow">→</span>
+    <a class="flow-chip" href="#s910"><span class="fn">⑨⑩</span><span class="fl">除去・RT</span></a>
+    <span class="flow-arrow">→</span>
+    <a class="flow-chip" href="#s11"><span class="fn">⑪</span><span class="fl">保定経過</span></a>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="container">
+
+  <!-- Progress -->
+  <div class="progress-bar-wrap">
+    <div class="progress-label">
+      <span>本日の対応チェック進捗</span>
+      <span id="prog-text">0 / 0 完了</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- ① 初診 -->
+  <div class="step-card" id="s1">
+    <div class="step-head" onclick="toggle(this)">
+      <div class="step-num" style="background:var(--navy);">①</div>
+      <div class="step-head-text">
+        <div class="step-title">初診</div>
+        <div class="step-desc">資料採得・動画視聴・次回予約　／　所要約60分</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles">
+          <span class="role uketsuke">受付</span>
+          <span class="role da">DA</span>
+          <span class="role dr">Dr</span>
+          <span class="role dh">DH</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">やること</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">問診票の確認（主訴・全身疾患・常備薬・アレルギー・妊娠・過去のトラブル）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">他院検討状況をヒアリングして記録する（フォローアップで使う）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">CT・セファロ撮影（金属類を全て外す）・WEスキャン・口腔内写真</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">スキャンデータを患者と一緒に確認・OHR発行</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">説明動画視聴（iPad・約10分）→ 質問受付</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">次回予約取得（CC説明日：約2週間後）</span></label>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="talk-label">トーク例</div>
+        <p>「こちらが本日お取りしたスキャンデータです。思っていたよりも歯並びにガタつきがありますね。こういった点もきちんと踏まえて治療計画を立てていきます。」</p>
+      </div>
+      <div class="compare-box">
+        <div class="compare-title">💡 なぜ今日クロージングしないのか｜他院との構造的な違い</div>
+        <p class="compare-lead">他院では「検査費用」を払ってから初めて治療提案を受ける。患者は判断材料がない状態で何万円も支払っている。</p>
+
+        <div class="compare-grid">
+          <div class="compare-col danger">
+            <div class="compare-col-head">❌ 他院の一般的な流れ</div>
+            <table class="compare-table">
+              <tr><td>初診相談料</td><td class="price">3,300円〜</td></tr>
+              <tr><td>基本検査料<br><span class="sub">写真・レントゲン・CT等</span></td><td class="price">33,000〜<br>55,000円</td></tr>
+              <tr><td>診断料<br><span class="sub">治療計画の立案</span></td><td class="price">33,000円</td></tr>
+              <tr class="total-row"><td>合計（治療提案を受けるまで）</td><td class="price danger-text">最大<br>88,000円超</td></tr>
+            </table>
+            <div class="compare-note">※患者さんは「払ったから続けなければ」という心理になりやすい。自由な判断ができない。</div>
+          </div>
+
+          <div class="compare-col success">
+            <div class="compare-col-head">✅ 当法人の流れ</div>
+            <table class="compare-table">
+              <tr><td>初診（資料採得・OHR発行・動画視聴）</td><td class="price green-text">無料</td></tr>
+              <tr><td>CT・スキャン・口腔内写真</td><td class="price green-text">無料</td></tr>
+              <tr><td>診断結果の説明（CC説明）</td><td class="price green-text">無料</td></tr>
+              <tr class="total-row"><td>治療提案を受けるまで</td><td class="price green-text">¥0</td></tr>
+            </table>
+            <div class="compare-note success-note">患者は費用ゼロで診断結果と複数プランを受け取る。「自分で選んだ」という体験が生まれる。これが信頼の起点。</div>
+          </div>
+        </div>
+
+        <div class="compare-bottom">
+          <strong>スタッフ全員が理解すること</strong>：初診でクロージングしないのは「売れないから」ではない。診断もせずに提案するのは旧来のやり方。当法人は判断材料を先に渡してから、初めて提案する。それが美しい医療のあり方。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ①' フォローアップ -->
+  <div class="step-card" id="s1f">
+    <div class="step-head" onclick="toggle(this)">
+      <div class="step-num" style="background:var(--teal);">①'</div>
+      <div class="step-head-text">
+        <div class="step-title">初診後フォローアップ</div>
+        <div class="step-desc">来院間2週間の患者対応</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles"><span class="role uketsuke">受付</span></div>
+      </div>
+      <div>
+        <div class="section-label">やること</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">【翌日必須】架電 or LINE：お礼・体調確認・次回予約日の確認</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">当日：LINE公式アカウントへの登録を案内する</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">【前日必須】予約確認の連絡を送る</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">他院受診予定がある場合：他院受診後に架電してヒアリング</span></label>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="talk-label">他院受診後のトーク例</div>
+        <p>「他の医院にもご相談されたとのことで、いかがでしたか？比較してみてのご質問があればぜひお聞かせください。」</p>
+      </div>
+      <div class="warn"><span class="icon">⚠️</span><div><strong>無理にクロージングしない</strong>比較した上で選んでいただける医院であることを体現する。</div></div>
+    </div>
+  </div>
+
+  <!-- ③ CC説明・契約 -->
+  <div class="step-card" id="s3">
+    <div class="step-head" onclick="toggle(this)">
+      <div class="step-num" style="background:var(--navy);">②③</div>
+      <div class="step-head-text">
+        <div class="step-title">CC説明・契約</div>
+        <div class="step-desc">診断資料作成（院内）→ CC説明・複数プラン提示・契約　／　所要60分</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles">
+          <span class="role dr">Dr</span>
+          <span class="role cou">カウンセラー</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">やること</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">CCシミュレーション再生（現在の状態→動き→最終形）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">複数プランをそれぞれ説明し、患者自身に選んでもらう</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">装置の説明（アタッチメント・フック・TAD）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">追加アライナー無料対応の説明（ミニマム1回・ライト/モデレート2回）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">申込書・同意書の読み合わせ・署名・控え渡し・診断書発行</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">お支払い確認・次回予約取得（約2週間後）</span></label>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="talk-label">プラン提示のトーク例</div>
+        <p>「今回〇〇様の診断をもとに、いくつかの治療プランを設計しました。それぞれ達成できることと費用・期間が異なります。一緒に見ていきましょう。」</p>
+      </div>
+      <div class="key"><span class="icon">★</span><div><strong>不明点はその場で即答しない</strong>必ず担当Drに確認してから回答する。</div></div>
+    </div>
+  </div>
+
+  <!-- ④ セット -->
+  <div class="step-card" id="s4">
+    <div class="step-head" onclick="toggle(this)">
+      <div class="step-num" style="background:var(--navy);">④</div>
+      <div class="step-head-text">
+        <div class="step-title">セット（アタッチメント接着）</div>
+        <div class="step-desc">ZOO完全防湿下・所要60分</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles">
+          <span class="role dr">Dr</span>
+          <span class="role da">DA</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">やること</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">付与順の確認：左下→左上→右下→右上（固定・変えない）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">エッチング時間を厳守（20〜30秒）。短すぎ・長すぎ両方NG</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">CR部位は事前に患者へ告知（取れる可能性がある旨）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">患者説明：装着方法・チューイの使い方・外し方・ケース保管</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">装着時間の指導：1日20時間以上（理想22時間）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">物販提案（フロス・歯磨き粉・ETAKスプレー・電動歯ブラシ）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">次回予約取得（ステージング表で来院タイミングを確認）</span></label>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="talk-label">物販トーク例</div>
+        <p>「フロスは隙間を入れているので必ず必要です。」「矯正期間中は着色しやすいのであった方がいいです。」（言い切る）</p>
+      </div>
+      <div class="warn"><span class="icon">⚠️</span><div><strong>エッチング時間を必ず計る</strong>20秒未満・40秒以上は接着力が低下する。</div></div>
+      <div>
+        <div class="section-label">ZOO（防湿器具）実際の使用シーン</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px;">
+          <div class="img-wrap">
+            <img class="step-img" src="zoo_01.jpg.png" alt="ZOO装着シーン（全体）">
+            <div class="img-caption">ZOO装着シーン（全体）</div>
+          </div>
+          <div class="img-wrap">
+            <img class="step-img" src="zoo_02.jpg.png" alt="口腔内クローズアップ">
+            <div class="img-caption">口腔内クローズアップ</div>
+          </div>
+          <div class="img-wrap">
+            <img class="step-img" src="zoo_03.jpg.png" alt="バキューム接続部・機材">
+            <div class="img-caption">バキューム接続部・機材</div>
+          </div>
+        </div>
+      </div>
+      <div class="img-wrap">
+        <img class="step-img" src="https://images.unsplash.com/photo-1611690060937-b1be8b100837?w=800&q=80&auto=format&fit=crop" alt="アライナーとセルフケア">
+        <div class="img-caption">セット後の患者説明：マウスピースと歯ブラシによるセルフケアを指導する</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ 経過来院 -->
+  <div class="step-card" id="s5">
+    <div class="step-head" onclick="toggle(this)">
+      <div class="step-num" style="background:var(--teal);">⑤</div>
+      <div class="step-head-text">
+        <div class="step-title">経過来院</div>
+        <div class="step-desc">途中来院・所要30分</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles">
+          <span class="role dr">Dr</span>
+          <span class="role da">DA</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">来院前に準備</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">スキャンデータ・CCデータをデスクトップに表示しておく</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">次回装着予定のアライナー番号を確認しておく</span></label>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">対応内容</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">装着時間の確認（1日20〜22時間）・ATとMPの破損チェック</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">初期と現在のスキャンを並べて変化を視覚的に見せる</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">次のアライナーの番号と交換タイミングを明確に伝える</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">褒める・見通しを伝えてモチベーションを維持する</span></label>
+        </div>
+      </div>
+      <div class="img-2col">
+        <div class="img-wrap">
+          <img class="step-img" src="https://images.unsplash.com/photo-1651180352574-669683817463?w=600&q=80&auto=format&fit=crop" alt="アライナーケース">
+          <div class="img-caption">専用ケースへの保管を毎回確認する</div>
+        </div>
+        <div class="img-wrap">
+          <img class="step-img" src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80&auto=format&fit=crop" alt="マウスピース装着確認">
+          <div class="img-caption">装着時間（20時間以上）を患者に確認・記録する</div>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="talk-label">モチベーションサポート例</div>
+        <p>「しっかり時間を守って装着しているから、歯の動きもスムーズですね。あと〇〇枚終われば大きな動きはほぼ完了します。」</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥⑦ 追加 -->
+  <div class="step-card" id="s67">
+    <div class="step-head" onclick="toggle(this)">
+      <div class="step-num" style="background:var(--navy);">⑥⑦</div>
+      <div class="step-head-text">
+        <div class="step-title">追加スキャン・追加セット</div>
+        <div class="step-desc">リファインメント / 追加AT接着30分</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles">
+          <span class="role dr">Dr</span>
+          <span class="role da">DA</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">やること</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">患者の改善希望を丁寧に聞く（当初の目標は変えない）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">再スキャン → CC完成後LINEで確認取得 → 6週間後以降にFIX</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">無料回数を必ず確認（ミニマム1回・ライト/モデレート2回）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">追加セット：手順は④と同じ。次のアライナー番号の持参を指示</span></label>
+        </div>
+      </div>
+      <div class="key"><span class="icon">★</span><div>初回アライナーだけで終わることはほとんどない。追加はほぼ全員に実施するので、事前に患者へ伝えておく。</div></div>
+    </div>
+  </div>
+
+  <!-- ⑧ チェアサイド -->
+  <div class="step-card" id="s8">
+    <div class="step-head" onclick="toggle(this)" style="background:rgba(201,169,78,.06);">
+      <div class="step-num" style="background:var(--gold);">⑧</div>
+      <div class="step-head-text">
+        <div class="step-title">チェアサイド調整 ★新プロトコル</div>
+        <div class="step-desc">残り3ステージのタイミング・所要30分</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles"><span class="role dr">Dr</span></div>
+      </div>
+      <div>
+        <div class="section-label">やること</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">ラグ（ズレ）を確認：1mm未満→チェアサイド修正 / 1mm以上→再スキャン</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">調整：捻転・トルク・挺出・リテンション強化（Drが判断）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">安全基準の確認：月間移動量1mm以内・加工後は滑面仕上げ</span></label>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="talk-label">患者への説明例</div>
+        <p>「最終的な仕上がりをより完璧に近づけるため、ゴール直前の大切なタイミングで一度細かな調整を行います。」</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑨⑩ 除去・リテーナー -->
+  <div class="step-card" id="s910">
+    <div class="step-head" onclick="toggle(this)">
+      <div class="step-num" style="background:var(--navy);">⑨⑩</div>
+      <div class="step-head-text">
+        <div class="step-title">AT除去・保定スキャン / リテーナーセット</div>
+        <div class="step-desc">治療終了・保定説明</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles">
+          <span class="role dr">Dr</span>
+          <span class="role dh">DH</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">やること</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">ATをプライヤーで除去 → 咬合調整 → 歯面クリーニング・研磨</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">リテーナー作製用スキャン・治療終了同意書の取得</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">患者の目の前でリテーナーを開封・フィッティング確認</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">最後のMPを保管するよう指示する</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">保定ルール説明：最初の1年は20時間・後半1年は夜のみ</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">ビフォーアフター提示・WEクリーニング提案</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">次回経過観察の案内（3〜6ヶ月に1回・2年間）</span></label>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="talk-label">リテーナーセット時のトーク例</div>
+        <p>「今日まで使っていた最後のマウスピースは、万が一リテーナーが壊れた時のために保管してください。」</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑪ 保定経過 -->
+  <div class="step-card" id="s11">
+    <div class="step-head" onclick="toggle(this)">
+      <div class="step-num" style="background:var(--green);">⑪</div>
+      <div class="step-head-text">
+        <div class="step-title">保定経過 & 終了セレモニー</div>
+        <div class="step-desc">3〜6ヶ月ごと・2年間継続</div>
+      </div>
+      <div class="step-toggle">›</div>
+    </div>
+    <div class="step-body">
+      <div>
+        <div class="section-label">担当</div>
+        <div class="roles">
+          <span class="role dr">Dr</span>
+          <span class="role dh">DH</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">毎回の確認（4点）</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">スキャンデータで後戻りの有無を確認・記録</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">位相差顕微鏡で口腔内の菌を患者に見せる（クリーニング提案に繋げる）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">WEシェードで歯の色を数値化してホワイトニング提案</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">リテーナーのフィッティング・破損確認</span></label>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">2年後：終了セレモニー</div>
+        <div class="checklist">
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">保定終了証の授与</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">スタッフと一緒に「褒め写真」を撮影（SNS拡散を促す）</span></label>
+          <label class="check-item"><div class="check-box" onclick="check(this)">✓</div><span class="check-text">紹介トークを必ず行い、紹介カードを手渡す</span></label>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="talk-label">紹介トーク例（必須）</div>
+        <p>「歯並びが気になっているご友人・ご家族がいれば、ぜひご紹介ください。同じように無料で診断させていただきます。」</p>
+      </div>
+      <div class="key"><span class="icon">🏆</span><div>終了症例 → 紹介・口コミ・SNS → 次の患者へ。一人の患者が医院の広告塔になる。</div></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">ELINESMILE スタッフ簡易マニュアル　｜　医療法人 mirai　｜　2026.05</div>
+
+<script>
+// Toggle accordion
+function toggle(head) {
+  const body = head.nextElementSibling;
+  const toggle = head.querySelector('.step-toggle');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'flex';
+  toggle.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(90deg)';
+}
+
+// Checkbox check
+function check(box) {
+  event.stopPropagation();
+  const item = box.closest('.check-item');
+  const checked = box.classList.toggle('checked');
+  item.classList.toggle('checked-item', checked);
+  updateProgress();
+}
+
+// Progress bar
+function updateProgress() {
+  const all = document.querySelectorAll('.check-box');
+  const done = document.querySelectorAll('.check-box.checked');
+  const pct = all.length ? Math.round(done.length / all.length * 100) : 0;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = done.length + ' / ' + all.length + ' 完了';
+}
+
+// Open all by default
+document.querySelectorAll('.step-body').forEach(b => b.style.display = 'flex');
+document.querySelectorAll('.step-toggle').forEach(t => t.style.transform = 'rotate(90deg)');
+
+updateProgress();
+</script>
+</body>
+</html>
